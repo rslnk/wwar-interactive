@@ -41,6 +41,28 @@
             "disabled": 0
         },
         {
+            "key": "field_55439c35698e6",
+            "label": "Facebook ID",
+            "name": "facebook_id",
+            "prefix": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": "",
+            "readonly": 0,
+            "disabled": 0
+        },
+        {
             "key": "field_553120e300008",
             "label": "Date & Language",
             "name": "",
@@ -427,5 +449,5 @@
     "label_placement": "top",
     "instruction_placement": "label",
     "hide_on_screen": "",
-    "modified": 1430414360
+    "modified": 1430494304
 }
