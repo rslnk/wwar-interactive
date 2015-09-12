@@ -26,22 +26,19 @@ angular.module('stories.list.filter', [])
       }
 
       function filterByTopics () {
-        stories.map(function (story) {
+        result = [];
+
+        stories.forEach(function (story) {
           if (!story.topics || !withinTopicsFilter(story.topics)) {
-            story.hide = true;
-            console.log('hide');
-          }
-          else {
-            story.hide = false;
-            console.log('show');
+            result.push(story);
           }
         });
+
+        return result;
       }
 
       function showAll () {
-        stories.map(function (story) {
-          story.hide = false;
-        });
+        result = stories;
       }
 
       function filterStories () {
@@ -50,7 +47,7 @@ angular.module('stories.list.filter', [])
         } else {
           showAll();
         }
-        return stories;
+        return result;
       }
 
       return filterStories();

@@ -5,6 +5,7 @@ web/.htaccess
 # WP-CLI
 db-sync
 sql-dump-*.sql
+web/*.sql
 
 # Dotenv
 .env
@@ -41,7 +42,3 @@ node_modules
 # Vagrant
 bin
 .vagrant
-
-# Sublime Text project
-*.sublime-workspace
-*.sublime-project

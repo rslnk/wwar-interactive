@@ -8,6 +8,7 @@ angular.module('stories.list.controller', [
   ])
   .controller('ListController', [
     '$scope',
+    '$filter',
     '$http',
     '$location',
     '$cookies',
@@ -16,9 +17,12 @@ angular.module('stories.list.controller', [
     '$stateParams',
     'lodash',
     'ApiService',
-  function ($scope, $http, $location, $cookies, $cookieStore, $state, $stateParams, lodash, ApiService) {
+  function ($scope, $filter, $http, $location, $cookies, $cookieStore, $state, $stateParams, lodash, ApiService) {
     $scope.stories = [];
     $scope.config = {};
+
+    $scope.page = 0;
+    $scope.perPage = 15;
 
     $scope.filter = { topics: [], searchText: '' };
 
@@ -89,6 +93,34 @@ angular.module('stories.list.controller', [
 
     $scope.openStory = function (slug) {
       $state.go('list.story', { story: slug });
+    };
+
+    $scope.getPages = function () {
+      var total = $filter('showStories')($scope.stories, $scope.filter).length;
+      var pages = Math.ceil(total/$scope.perPage);
+      return new Array( pages );
+    };
+
+    $scope.nextPage = function () {
+      $scope.page += 1;
+    };
+
+    $scope.prevPage = function () {
+      $scope.page -= 1;
+    };
+
+    $scope.toPage = function (page) {
+      $scope.page = page;
+    };
+
+    $scope.inPaginatorScope = function (i) {
+      var min = $scope.page*$scope.perPage;
+      var max = min + $scope.perPage;
+      return (i >= min && i < max);
+    };
+
+    $scope.activePage = function (i) {
+      return (i === $scope.page);
     };
 
   }]);

@@ -234,7 +234,7 @@ gulp.task('iconify', function() {
 // `gulp jshint` - Lints configuration JSON and project JS.
 gulp.task('jshint', function() {
   gulp.src([
-    'bower.json', 
+    'bower.json',
     'gulpfile.js'
   ].concat(project.js))
     .pipe($.jshint())
@@ -294,4 +294,3 @@ gulp.task('wiredep', function() {
 gulp.task('default', ['clean'], function() {
   gulp.start('build');
 });
-

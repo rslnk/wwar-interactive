@@ -66,8 +66,8 @@
         <ol class="o-list o-list--decimal c-footnotes__list">
           <li ng-repeat="item in event.sources" ng-switch="item.source_type" class="c-footnotes__list-item">
             <span ng-switch-when="book">
-              <span ng-if="item.contributor_type && item.authors">
-                {{ item.authors }}
+              <span ng-if="item.authors && item.author!='0'">
+                {{ item.authors }}.
               </span>
               <span ng-if="item.chapter">
                 "{{ item.chapter }}".
@@ -78,11 +78,11 @@
               <span ng-if="item.title && !item.url">
                 <em>{{ item.title }}</em>.
               </span>
-              <span ng-if="item.editors">
-                {{ siteConfig.event_source_editors }} {{ item.editors }}
+              <span ng-if="item.editor && item.editor!='0'">
+                {{ siteConfig.event_source_editors }} {{ item.editors }}.
               </span>
-              <span ng-if="item.translators">
-                {{ siteConfig.event_source_translators }} {{ item.translators }}
+              <span ng-if="item.translator && item.translator!='0'">
+                {{ siteConfig.event_source_translators }} {{ item.translators }}.
               </span>
               <span ng-if="item.edition">
                 {{ siteConfig.event_source_edition}} {{ item.edition }}.
@@ -117,8 +117,8 @@
             </span>
 
             <span ng-switch-when="article">
-              <span ng-if="item.authors">
-                {{ item.authors }}
+              <span ng-if="item.authors && item.author!='0'">
+                {{ item.authors }}.
               </span>
               <span ng-if="item.title && item.url">
                 "<a href="{{ item.url }}">{{ item.title }}</a>".
@@ -129,11 +129,11 @@
               <span ng-if="item.periodical_title">
                 <em>{{ item.periodical_title }}</em>.
               </span>
-              <span ng-if="item.editors">
-                {{ siteConfig.event_source_editors }} {{ item.editors }}
+              <span ng-if="item.editors && item.editor!='0'">
+                {{ siteConfig.event_source_editors }} {{ item.editors }}.
               </span>
-              <span ng-if="item.translators">
-                {{ siteConfig.event_source_translators }} {{ item.translators }}
+              <span ng-if="item.translators && item.translator!='0'">
+                {{ siteConfig.event_source_translators }} {{ item.translators }}.
               </span>
               <span ng-if="item.edition">
                 {{ siteConfig.event_source_edition}} {{ item.edition }}.
@@ -180,8 +180,8 @@
             </span>
 
             <span ng-switch-when="misc">
-              <span ng-if="item.authors">
-                {{ item.authors }}
+              <span ng-if="item.authors && item.author=!'0'">
+                {{ item.authors }}.
               </span>
               <span ng-if="item.title && item.url">
                 "<a href="{{ item.url }}">{{ item.title }}</a>".
@@ -192,11 +192,11 @@
               <span ng-if="item.periodical_title">
                 <em>{{ item.periodical_title }}</em>.
               </span>
-              <span ng-if="item.editors">
-                {{ siteConfig.event_source_editors }} {{ item.editors }}
+              <span ng-if="item.editors && item.editor!='0'">
+                {{ siteConfig.event_source_editors }} {{ item.editors }}.
               </span>
-              <span ng-if="item.translators">
-                {{ siteConfig.event_source_translators }} {{ item.translators }}
+              <span ng-if="item.translators && item.translator!='0'">
+                {{ siteConfig.event_source_translators }} {{ item.translators }}.
               </span>
               <span ng-if="item.edition">
                 {{ siteConfig.event_source_edition}} {{ item.edition }}.
@@ -242,8 +242,8 @@
         <ol class="o-list o-list--decimal c-footnotes__list">
           <li ng-repeat="item in event.resources" ng-switch="item.resource_type" class=" c-footnotes__list-item">
             <span ng-switch-when="book">
-              <span ng-if="item.authors">
-                {{ item.authors }}
+              <span ng-if="item.authors && item.author=!'0'">
+                {{ item.authors }}.
               </span>
               <span ng-if="item.chapter">
                 "{{ item.chapter }}".
@@ -254,11 +254,11 @@
               <span ng-if="item.title && !item.url">
                 <em>{{ item.title }}</em>.
               </span>
-              <span ng-if="item.editors">
-                {{ siteConfig.event_source_editors }} {{ item.editors }}
+              <span ng-if="item.editors && item.editor!='0'">
+                {{ siteConfig.event_source_editors }} {{ item.editors }}.
               </span>
-              <span ng-if="item.translators">
-                {{ siteConfig.event_source_translators }} {{ item.translators }}
+              <span ng-if="item.translators && item.translator!='0'">
+                {{ siteConfig.event_source_translators }} {{ item.translators }}.
               </span>
               <span ng-if="item.edition">
                 {{ siteConfig.event_source_edition}} {{ item.edition }}.
@@ -293,8 +293,8 @@
             </span>
 
             <span ng-switch-when="article">
-              <span ng-if="item.authors">
-                {{ item.authors }}
+              <span ng-if="item.authors && item.author!='0'">
+                {{ item.authors }}.
               </span>
               <span ng-if="item.title && item.url">
                 "<a href="{{ item.url }}">{{ item.title }}</a>".
@@ -305,11 +305,11 @@
               <span ng-if="item.periodical_title">
                 <em>{{ item.periodical_title }}</em>.
               </span>
-              <span ng-if="item.editors">
-                {{ siteConfig.event_source_editors }} {{ item.editors }}
+              <span ng-if="item.editors && item.editor!='0'">
+                {{ siteConfig.event_source_editors }} {{ item.editors }}.
               </span>
-              <span ng-if="item.translators">
-                {{ siteConfig.event_source_translators }} {{ item.translators }}
+              <span ng-if="item.translators && item.translator!='0'">
+                {{ siteConfig.event_source_translators }} {{ item.translators }}.
               </span>
               <span ng-if="item.edition">
                 {{ siteConfig.event_source_edition}} {{ item.edition }}.
@@ -356,8 +356,8 @@
             </span>
 
             <span ng-switch-when="misc">
-              <span ng-if="item.authors">
-                {{ item.authors }}
+              <span ng-if="item.authors && item.author!='0'">
+                {{ item.authors }}.
               </span>
               <span ng-if="item.title && item.url">
                 "<a href="{{ item.url }}">{{ item.title }}</a>".
@@ -368,11 +368,11 @@
               <span ng-if="item.periodical_title">
                 <em>{{ item.periodical_title }}</em>.
               </span>
-              <span ng-if="item.editors">
-                {{ siteConfig.event_source_editors }} {{ item.editors }}
+              <span ng-if="item.editors && item.editor!='0'">
+                {{ siteConfig.event_source_editors }} {{ item.editors }}.
               </span>
-              <span ng-if="item.translators">
-                {{ siteConfig.event_source_translators }} {{ item.translators }}
+              <span ng-if="item.translators && item.translator!='0'">
+                {{ siteConfig.event_source_translators }} {{ item.translators }}.
               </span>
               <span ng-if="item.edition">
                 {{ siteConfig.event_source_edition}} {{ item.edition }}.

@@ -14,7 +14,9 @@
     </ul>
     <ul class="filter-counter">
       <li class="filter-counter__item">{{ siteConfig.total_stories_label }}: <strong>{{ stories.length }}</strong></li>
-      <li class="filter-counter__item" ng-show="stories.length != (stories|filter: {hide: false}).length">{{ siteConfig.flitered_stories_label }}: <strong>{{ (stories|filter: {hide: false}).length}}</strong></li>
+      <li class="filter-counter__item" ng-show="stories.length != (stories|showStories:filter).length">
+        {{ siteConfig.flitered_stories_label }}: <strong>{{ (stories|showStories:filter).length}}</strong>
+      </li>
     </ul>
   </div>
   <div class="c-wrapper--row">
@@ -22,8 +24,19 @@
       class="story-preview__item"
       ng-click="openStory(story.slug)"
       ng-class="{'story-preview__item--disabled': story.hide === true}"
-      ng-repeat="story in stories|showStories:filter">
+      ng-repeat="(k, story) in stories|showStories:filter" ng-show="inPaginatorScope(k)">
     </story-preview>
   </div>
 
   <div ui-view></div>
+
+  <div class="c-wrapper--row">
+    <ul class="pagination">
+      <li ng-click="prevPage()" ng-show="page > 0">Previous</li>
+      <li ng-repeat="(k, v) in getPages() track by $index" 
+          ng-click="toPage(k)" 
+          ng-class="{'pagination__item--active': k === page }">{{ k+1 }}</li>
+      <li ng-click="nextPage()" ng-show="page < (getPages()).length-1">Next</li>
+    </ul>
+  </div>
+

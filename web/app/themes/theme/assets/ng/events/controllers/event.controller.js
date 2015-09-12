@@ -54,32 +54,32 @@ angular.module('events.event.controller', [
 
           if ($scope.event.sources) {
             $scope.event.sources.map(function (item) {
-              if (!item.author) {
-                item.authors = convertContributors(item.author)+'.';
+              if (item.author) {
+                item.authors = convertContributors(item.author);
               }
 
-              if (!item.editor) {
-                item.editors = convertContributors(item.editor)+'.';
+              if (item.editor) {
+                item.editors = convertContributors(item.editor);
               }
 
-              if (!item.translator) {
-                item.translators = convertContributors(item.translator)+'.';
+              if (item.translator) {
+                item.translators = convertContributors(item.translator);
               }
             });
           }
 
           if ($scope.event.resources) {
             $scope.event.resources.map(function (item) {
-              if (!item.author) {
-                item.authors = convertContributors(item.author)+'.';
+              if (item.author) {
+                item.authors = convertContributors(item.author);
               }
 
-              if (!item.editor) {
-                item.editors = convertContributors(item.editor)+'.';
+              if (item.editor) {
+                item.editors = convertContributors(item.editor);
               }
 
-              if (!item.translator) {
-                item.translators = convertContributors(item.translator)+'.';
+              if (item.translator) {
+                item.translators = convertContributors(item.translator);
               }
             });
           }
